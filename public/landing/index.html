@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f3ef" />
+    <title>기름 배달OIL EXPRESS — 필요한 오일을, 필요한 곳까지</title>
+    <meta
+      name="description"
+      content="중소규모 공장과 개인을 위한 오일 배송 서비스. 오일 익스프레스의 납품 서비스와 유가 정보를 확인하세요."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="오일 익스프레스 홈">
+          <span class="brand-symbol"><i></i><i></i><i></i></span>
+          <span>OIL<span class="brand-express"> EXPRESS</span></span>
+        </a>
+        <nav class="main-nav" aria-label="주요 메뉴">
+          <a class="nav-current" href="/delivery" target="_parent">배송 서비스</a>
+          <a href="/market" target="_parent">유가 정보</a>
+          <a href="/briefing" target="_parent">시장 브리핑</a>
+          <a href="/news" target="_parent">에너지 뉴스</a>
+        </nav>
+        <div class="header-tools">
+          <span class="header-date" id="today-date">MARKET DESK · SEOUL</span>
+          <a class="header-cta" href="/admin" target="_parent">관리자 페이지 <span>↗</span></a>
+          <button
+            class="icon-button search-trigger"
+            id="search-trigger"
+            aria-label="검색 열기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.6" />
+              <path d="m16 16 4.2 4.2" />
+            </svg>
+          </button>
+        </div>
+        <div class="search-popover" id="search-popover" hidden>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="유가, 뉴스 검색"
+            aria-label="검색어 입력"
+          /><span>ESC</span>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero" id="market">
+          <div
+            class="hero-image"
+            role="img"
+            aria-label="해 질 무렵 따뜻한 불빛이 켜진 정유공장"
+          ></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-copy">
+            <div class="hero-kicker">
+              <span class="live-pulse"></span> OIL DELIVERY · MADE SIMPLE
+            </div>
+            <p class="hero-overline">FOR FACTORIES, BUSINESSES &amp; HOME</p>
+            <h1>필요한 오일을,<br />필요한 곳까지 <em>정확하게.</em></h1>
+            <p class="hero-description">
+              공장과 사업장부터 개인까지, 오일 배송을 더 편리하게 연결합니다.
+            </p>
+            <div class="hero-actions">
+              <a class="hero-link" href="/delivery" target="_parent"
+                >배송 서비스 보기 <span>↘</span></a
+              ><a class="hero-secondary" href="/market" target="_parent"
+                >오늘의 유가 확인</a
+              >
+            </div>
+          </div>
+          <div class="hero-side-note">
+            <span>OIL EXPRESS</span
+            ><span>필요한 순간에, 믿을 수 있는 공급</span>
+          </div>
+          <aside
+            class="hero-quote"
+            aria-label="오일 익스프레스 배송 서비스 소개"
+          >
+            <div class="quote-top">
+              <span>OIL EXPRESS SERVICE</span
+              ><span class="quote-live"><i></i> COMING SOON</span>
+            </div>
+            <div class="quote-service-title">공장부터 일상까지</div>
+            <div class="quote-service-sub">사업장 · 중소 공장 · 개인 고객</div>
+            <div class="quote-bottom">
+              <span class="quote-change">배송 서비스 준비 중</span
+              ><span>서비스 안내</span
+              ><svg viewBox="0 0 100 28" aria-hidden="true">
+                <path d="M1 20 C18 16 25 23 39 14 S58 19 69 10 S84 15 99 4" />
+              </svg>
+            </div>
+          </aside>
+        </section>
+
+        <div class="ticker-row" aria-label="주요 시장 지표">
+          <div class="ticker-label">
+            <span class="live-pulse"></span> MARKET SNAPSHOT
+            <span class="ticker-separator">/</span> 09:42 KST
+          </div>
+          <div class="ticker-items">
+            <article class="ticker-item">
+              <span>WTI</span><strong>$70.16</strong
+              ><em class="positive">+0.38%</em>
+            </article>
+            <article class="ticker-item">
+              <span>DUBAI</span><strong>$72.41</strong
+              ><em class="negative">−0.12%</em>
+            </article>
+            <article class="ticker-item">
+              <span>USD / KRW</span><strong>1,382.5</strong
+              ><em class="positive">+0.21%</em>
+            </article>
+            <article class="ticker-item ticker-gas">
+              <span>전국 휘발유</span><strong>1,684원</strong><em>원 / L</em>
+            </article>
+          </div>
+        </div>
+
+        <section class="delivery-section section-block" id="delivery">
+          <div class="section-heading delivery-heading">
+            <div>
+              <p class="section-kicker">01 — OIL, DELIVERED</p>
+              <h2>사용하는 곳에 맞는 오일 배송</h2>
+              <p class="section-subtitle">
+                필요한 품목과 사용 환경에 맞춰 납품을 연결합니다.
+              </p>
+            </div>
+            <span class="service-status"><i></i> 배송 서비스 오픈 준비 중</span>
+          </div>
+          <div class="delivery-grid">
+            <article class="delivery-card factory-card">
+              <div class="delivery-card-top">
+                <span class="delivery-index">01</span
+                ><span class="delivery-audience">B2B · BUSINESS</span>
+              </div>
+              <div
+                class="delivery-illustration factory-illustration"
+                aria-hidden="true"
+              >
+                <span class="factory-roof"></span
+                ><span class="factory-stack"></span
+                ><span class="factory-tank"></span
+                ><span class="factory-pipe"></span>
+              </div>
+              <div class="delivery-card-copy">
+                <h3>공장 · 사업장</h3>
+                <p>운영 규모와 사용량에 맞춘 오일 납품을 준비합니다.</p>
+                <div class="delivery-tags">
+                  <span>사업장 공급</span><span>필요량 상담</span>
+                </div>
+              </div>
+              <span class="delivery-arrow">↗</span>
+            </article>
+            <article class="delivery-card personal-card">
+              <div class="delivery-card-top">
+                <span class="delivery-index">02</span
+                ><span class="delivery-audience">B2C · PERSONAL</span>
+              </div>
+              <div
+                class="delivery-illustration home-illustration"
+                aria-hidden="true"
+              >
+                <span class="home-roof"></span><span class="home-body"></span
+                ><span class="home-door"></span
+                ><span class="home-window"></span>
+              </div>
+              <div class="delivery-card-copy">
+                <h3>개인 · 가정</h3>
+                <p>필요한 오일을 편리하게 받아볼 수 있는 배송을 준비합니다.</p>
+                <div class="delivery-tags">
+                  <span>개인 주문</span><span>편리한 배송</span>
+                </div>
+              </div>
+              <span class="delivery-arrow">↗</span>
+            </article>
+            <aside class="delivery-note">
+              <span class="note-icon">✳</span>
+              <div>
+                <span class="note-label">BUILT AROUND YOUR NEEDS</span>
+                <h3>필요한 곳까지,<br />오일 공급을 더 간편하게.</h3>
+                <p>
+                  배송 가능 지역과 품목을 차근차근 준비하고 있어요.<br />서비스
+                  연결 소식을 이곳에서 확인해 주세요.
+                </p>
+              </div>
+              <a href="#market-data">유가 정보 먼저 보기 <span>→</span></a>
+            </aside>
+          </div>
+        </section>
+
+        <section class="market-section section-block" id="market-data">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">02 — PRICE WATCH</p>
+              <h2>구매에 참고하는 오늘의 유가</h2>
+              <p class="section-subtitle">
+                국제 원유 가격 흐름과 국내 평균 유가를 확인하세요.
+              </p>
+            </div>
+            <div
+              class="period-switch"
+              id="periods"
+              role="group"
+              aria-label="차트 조회 기간"
+            >
+              <button data-days="7">1주</button
+              ><button class="is-active" data-days="30">1개월</button
+              ><button data-days="90">3개월</button
+              ><button data-days="365">1년</button>
+            </div>
+          </div>
+          <div class="market-layout">
+            <article class="panel chart-panel">
+              <div class="chart-header">
+                <div>
+                  <div class="chart-price-line">
+                    <strong id="chart-price">$74.82</strong
+                    ><span class="positive">+0.64%</span>
+                  </div>
+                  <span class="chart-caption" id="chart-caption"
+                    >Brent Crude · USD / barrel · 최근 30일</span
+                  >
+                </div>
+                <div class="chart-legend">
+                  <span><i class="legend-brent"></i>Brent</span
+                  ><span><i class="legend-wti"></i>WTI</span>
+                </div>
+              </div>
+              <div class="chart-canvas">
+                <svg
+                  id="price-chart"
+                  viewBox="0 0 860 250"
+                  preserveAspectRatio="none"
+                  role="img"
+                  aria-label="브렌트유와 WTI 가격 흐름 그래프"
+                >
+                  <defs>
+                    <linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1">
+                      <stop
+                        offset="0"
+                        stop-color="#277b5a"
+                        stop-opacity=".16"
+                      />
+                      <stop offset="1" stop-color="#277b5a" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <g class="chart-grid">
+                    <path
+                      d="M40 25H850M40 75H850M40 125H850M40 175H850M40 225H850"
+                    />
+                  </g>
+                  <g class="chart-axis">
+                    <text x="0" y="29">80</text>
+                    <text x="0" y="79">76</text>
+                    <text x="0" y="129">72</text>
+                    <text x="0" y="179">68</text>
+                    <text x="0" y="229">64</text>
+                  </g>
+                  <path
+                    id="chart-area"
+                    d="M40 125 C76 119 90 130 120 117 S169 103 198 112 S246 89 279 96 S327 121 360 105 S408 91 440 84 S488 98 520 78 S568 72 600 84 S649 60 680 67 S726 82 760 56 S809 62 850 38 L850 225 L40 225Z"
+                    fill="url(#chart-fill)"
+                  />
+                  <path
+                    id="chart-brent"
+                    d="M40 125 C76 119 90 130 120 117 S169 103 198 112 S246 89 279 96 S327 121 360 105 S408 91 440 84 S488 98 520 78 S568 72 600 84 S649 60 680 67 S726 82 760 56 S809 62 850 38"
+                    fill="none"
+                    stroke="#277b5a"
+                    stroke-width="2.6"
+                    vector-effect="non-scaling-stroke"
+                  />
+                  <path
+                    id="chart-wti"
+                    d="M40 169 C76 164 90 174 120 160 S169 148 198 157 S246 134 279 141 S327 165 360 151 S408 139 440 130 S488 145 520 125 S568 121 600 132 S649 107 680 114 S726 128 760 103 S809 108 850 87"
+                    fill="none"
+                    stroke="#d59868"
+                    stroke-width="2"
+                    vector-effect="non-scaling-stroke"
+                  />
+                  <circle
+                    id="chart-dot"
+                    cx="850"
+                    cy="38"
+                    r="4.5"
+                    fill="#277b5a"
+                    stroke="#fff"
+                    stroke-width="2.5"
+                    vector-effect="non-scaling-stroke"
+                  />
+                </svg>
+              </div>
+              <div class="chart-dates">
+                <span>09.22</span><span>09.27</span><span>10.02</span
+                ><span>10.07</span><span>10.12</span><span>10.17</span
+                ><span>10.22</span>
+              </div>
+              <div class="chart-footer">
+                <span>자료 기준 · 데모 화면</span
+                ><button class="text-button" id="refresh-button">
+                  업데이트 <span>↻</span>
+                </button>
+              </div>
+            </article>
+            <aside class="insight-card" id="insight">
+              <div class="insight-top">
+                <span class="section-kicker">TODAY'S INSIGHT</span
+                ><span class="insight-index">01 / 03</span>
+              </div>
+              <div class="insight-rule"></div>
+              <p class="insight-category">SUPPLY &amp; DEMAND</p>
+              <h3>공급 우려 완화,<br />유가는 숨 고르기.</h3>
+              <p class="insight-body">
+                주요 산유국의 생산량 조정 신호와 재고 증가 소식이 맞물리며 국제
+                유가는 제한적인 움직임을 보이고 있습니다.
+              </p>
+              <a href="#news" class="insight-link"
+                >브리핑 읽기 <span>↗</span></a
+              >
+              <span class="insight-watermark">O.</span>
+            </aside>
+          </div>
+        </section>
+
+        <section class="domestic-section section-block" id="prices">
+          <div class="section-heading domestic-heading">
+            <div>
+              <p class="section-kicker">03 — DOMESTIC PRICES</p>
+              <h2>오늘의 국내 유가</h2>
+              <p class="section-subtitle">전국 평균 가격 · 리터당 기준</p>
+            </div>
+            <a class="section-more" href="https://www.opinet.co.kr/user/dopospdrg/dopOsPdrgAreaView.do" target="_blank" rel="noopener noreferrer"
+              >오피넷 평균가 확인 <span>↗</span></a
+            >
+          </div>
+          <div class="fuel-grid">
+            <article class="fuel-card">
+              <div class="fuel-name">
+                <span class="fuel-icon fuel-gas">G</span>
+                <div>
+                  <h3>휘발유</h3>
+                  <span>GASOLINE</span>
+                </div>
+                <span class="fuel-trend up">↗ 2.1</span>
+              </div>
+              <div class="fuel-price">1,684<span>원</span></div>
+              <div class="fuel-track"><i style="width: 68%"></i></div>
+              <p>전일 대비 <b>+2.1원</b></p>
+            </article>
+            <article class="fuel-card">
+              <div class="fuel-name">
+                <span class="fuel-icon fuel-diesel">D</span>
+                <div>
+                  <h3>자동차 경유</h3>
+                  <span>DIESEL</span>
+                </div>
+                <span class="fuel-trend down">↘ 0.8</span>
+              </div>
+              <div class="fuel-price">1,572<span>원</span></div>
+              <div class="fuel-track"><i style="width: 53%"></i></div>
+              <p>전일 대비 <b>−0.8원</b></p>
+            </article>
+            <article class="fuel-card">
+              <div class="fuel-name">
+                <span class="fuel-icon fuel-lpg">L</span>
+                <div>
+                  <h3>자동차 LPG</h3>
+                  <span>AUTO LPG</span>
+                </div>
+                <span class="fuel-trend up">↗ 0.4</span>
+              </div>
+              <div class="fuel-price">1,008<span>원</span></div>
+              <div class="fuel-track"><i style="width: 36%"></i></div>
+              <p>전일 대비 <b>+0.4원</b></p>
+            </article>
+          </div>
+          <div class="opinet-links">
+            <span class="opinet-update"><i></i> 전국 평균은 매일 갱신 · 주유소 가격은 수시 반영</span>
+            <a href="https://www.opinet.co.kr/user/dopospdrg/dopOsPdrgAreaView.do" target="_blank" rel="noopener noreferrer">최신 전국·지역 평균가 <span>↗</span></a>
+            <a href="https://www.opinet.co.kr/searRgOsSelect.do" target="_blank" rel="noopener noreferrer">주유소별 판매가격 <span>↗</span></a>
+          </div>
+        </section>
+
+        <section class="news-section section-block" id="news">
+          <div class="section-heading news-heading">
+            <div>
+              <p class="section-kicker">04 — THE LATEST</p>
+              <h2>에너지 브리핑</h2>
+            </div>
+            <a class="section-more" href="#news-list"
+              >모든 소식 <span>↗</span></a
+            >
+          </div>
+          <div class="news-grid" id="news-list">
+            <a
+              class="news-card news-feature"
+              href="https://www.iea.org/reports/oil-market-report-october-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><div class="news-image news-image-one">
+                <span>GLOBAL MARKET</span>
+              </div>
+              <div class="news-meta">
+                <span>MARKET OUTLOOK</span><time>10.14</time>
+              </div>
+              <h3>IEA 10월 원유시장 보고서<br />수급 전망 업데이트</h3>
+              <p>
+                글로벌 석유 수요·공급, 재고와 정제 활동을 다룬 월간 전망입니다.
+              </p>
+              <span class="news-arrow">↗</span></a
+            >
+            <a
+              class="news-card"
+              href="https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172298/view?pageIndex=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><div class="news-image news-image-two">
+                <span>KOREA POLICY</span>
+              </div>
+              <div class="news-meta"><span>POLICY</span><time>10.17</time></div>
+              <h3>11차 석유 최고가격,<br />10차 수준으로 동결</h3>
+              <p>
+                10월 17일부터 4주 동안 적용되는 국내 석유 최고가격 안내입니다.
+              </p>
+              <span class="news-arrow">↗</span></a
+            >
+            <a
+              class="news-card"
+              href="https://www.opinet.co.kr/user/dopospdrg/dopOsPdrgAreaView.do"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><div class="news-image news-image-three">
+                <span>PRICE DATA</span>
+              </div>
+              <div class="news-meta">
+                <span>PRICE DATA</span><time>10.21</time>
+              </div>
+              <h3>전국·지역별 주유소<br />평균 가격 확인</h3>
+              <p>
+                오피넷에서 보통휘발유와 경유 등 제품별 평균 가격을 확인하세요.
+              </p>
+              <span class="news-arrow">↗</span></a
+            >
+          </div>
+        </section>
+        <section class="nearby-strip" id="stations">
+          <div>
+            <span class="nearby-mark">⌖</span>
+            <div>
+              <span class="nearby-eyebrow">DELIVERY SERVICE</span>
+              <h2>오일 배송 서비스, 곧 만나요</h2>
+            </div>
+          </div>
+          <p>사업장과 개인 고객을 위한 배송 연결을 준비하고 있습니다.</p>
+          <a href="#delivery">서비스 살펴보기 <span>→</span></a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <a class="brand footer-brand" href="#top"
+          ><span class="brand-symbol"><i></i><i></i><i></i></span
+          ><span>OIL<span class="brand-express"> EXPRESS</span></span></a
+        >
+        <p>필요한 오일을, 필요한 곳까지.</p>
+        <div class="footer-right">
+          <span>© OIL EXPRESS 2026</span
+          ><small
+            >유가 수치는 시안용 예시값이며, 뉴스 카드는 외부 원문으로
+            연결됩니다. 배송 서비스는 준비 중입니다.</small
+          >
+        </div>
+      </footer>
+    </div>
+    <script>
+      const periods = [...document.querySelectorAll("#periods button")];
+      const chartData = {
+        7: {
+          caption: "최근 7일",
+          brent:
+            "M40 150 C105 146 122 158 190 128 S270 114 340 130 S430 98 500 104 S590 82 660 91 S750 57 850 38",
+          wti: "M40 184 C105 181 122 190 190 162 S270 150 340 163 S430 133 500 140 S590 118 660 128 S750 97 850 80",
+        },
+        30: {
+          caption: "최근 30일",
+          brent:
+            "M40 125 C76 119 90 130 120 117 S169 103 198 112 S246 89 279 96 S327 121 360 105 S408 91 440 84 S488 98 520 78 S568 72 600 84 S649 60 680 67 S726 82 760 56 S809 62 850 38",
+          wti: "M40 169 C76 164 90 174 120 160 S169 148 198 157 S246 134 279 141 S327 165 360 151 S408 139 440 130 S488 145 520 125 S568 121 600 132 S649 107 680 114 S726 128 760 103 S809 108 850 87",
+        },
+        90: {
+          caption: "최근 3개월",
+          brent:
+            "M40 178 C95 166 125 176 178 145 S245 157 293 119 S358 134 408 109 S466 126 514 96 S573 105 618 77 S683 88 729 65 S796 72 850 38",
+          wti: "M40 205 C95 195 125 202 178 174 S245 185 293 151 S358 166 408 141 S466 158 514 128 S573 137 618 111 S683 121 729 100 S796 107 850 76",
+        },
+        365: {
+          caption: "최근 1년",
+          brent:
+            "M40 202 C95 190 120 202 172 176 S230 189 283 151 S345 164 394 132 S451 145 505 105 S563 124 615 91 S676 111 726 76 S791 88 850 38",
+          wti: "M40 221 C95 211 120 219 172 197 S230 207 283 174 S345 186 394 157 S451 169 505 132 S563 148 615 118 S676 136 726 103 S791 116 850 81",
+        },
+      };
+      periods.forEach((button) =>
+        button.addEventListener("click", () => {
+          periods.forEach((item) => item.classList.remove("is-active"));
+          button.classList.add("is-active");
+          const data = chartData[button.dataset.days],
+            brent = document.querySelector("#chart-brent"),
+            wti = document.querySelector("#chart-wti");
+          brent.setAttribute("d", data.brent);
+          wti.setAttribute("d", data.wti);
+          const end = data.brent.match(/850 ([0-9]+)/)?.[1] || 38;
+          document.querySelector("#chart-dot").setAttribute("cy", end);
+          document
+            .querySelector("#chart-area")
+            .setAttribute("d", data.brent + " L850 225 L40 225Z");
+          document.querySelector("#chart-caption").textContent =
+            `Brent Crude · USD / barrel · ${data.caption}`;
+        }),
+      );
+      const searchTrigger = document.querySelector("#search-trigger"),
+        searchPopover = document.querySelector("#search-popover"),
+        searchInput = document.querySelector("#search-input");
+      searchTrigger.addEventListener("click", () => {
+        searchPopover.hidden = !searchPopover.hidden;
+        if (!searchPopover.hidden) searchInput.focus();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") searchPopover.hidden = true;
+        if (
+          (event.metaKey || event.ctrlKey) &&
+          event.key.toLowerCase() === "k"
+        ) {
+          event.preventDefault();
+          searchPopover.hidden = false;
+          searchInput.focus();
+        }
+      });
+      document
+        .querySelector("#refresh-button")
+        .addEventListener("click", (event) => {
+          event.currentTarget.innerHTML = "업데이트 완료 <span>✓</span>";
+          setTimeout(
+            () => (event.currentTarget.innerHTML = "업데이트 <span>↻</span>"),
+            1600,
+          );
+        });
+      const now = new Date();
+      document.querySelector("#today-date").textContent =
+        now
+          .toLocaleDateString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+            timeZone: "Asia/Seoul",
+          })
+          .toUpperCase() + " · SEOUL";
+    </script>
+  </body>
+</html>
