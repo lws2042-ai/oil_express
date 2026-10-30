@@ -1,0 +1,179 @@
+/* 오늘의 유가 페이지 전용 (공통 토큰·버튼은 style.css) */
+.app--price { padding-bottom: calc(40px + var(--safe-b)); }
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.back-btn:active { background: rgba(255, 255, 255, 0.2); }
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.live-badge i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3ddc84;
+  box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.25);
+}
+
+.app--price .hero-title { margin: 24px 0 6px; }
+.hero-sub { position: relative; margin: 0 0 18px; font-size: 14px; opacity: 0.7; }
+
+.area-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 50px;
+  padding: 0 14px;
+  border-radius: 15px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 12px 30px rgba(5, 10, 30, 0.28);
+}
+.area-select > span:first-child .i { color: var(--brand); width: 18px; height: 18px; }
+.area-select select {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.area-chev { pointer-events: none; }
+.area-chev .i { width: 18px; height: 18px; color: var(--muted); }
+
+.price-main { padding: 22px 16px 0; }
+
+.prices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.price-card {
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  animation: rise 0.35s var(--ease) both;
+}
+.price-card:nth-child(2) { animation-delay: 60ms; }
+.price-card:nth-child(3) { animation-delay: 120ms; }
+
+.price-head { display: flex; align-items: center; gap: 8px; }
+.price-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--brand)); }
+.price-head h2 { margin: 0; font-size: 15px; font-weight: 700; color: var(--ink-2); }
+.price-tag {
+  margin-left: auto;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.price-value {
+  margin: 14px 0 8px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.price-value strong { font-size: 28px; font-weight: 800; }
+.price-dec { font-size: 16px; font-weight: 700; color: var(--muted); }
+.price-unit { margin-left: 4px; font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+
+.price-diff {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: var(--surface-2);
+  color: var(--muted);
+}
+.price-diff small { font-size: 11px; font-weight: 600; opacity: 0.8; }
+.price-diff.up { color: #e5484d; background: var(--danger-soft); }
+.price-diff.down { color: var(--sms); background: var(--sms-soft); }
+
+/* 등유: 배달 주력 상품이라 크게 강조 */
+.price-card--hero {
+  grid-column: 1 / -1;
+  padding: 22px;
+  color: #fff;
+  background:
+    radial-gradient(90% 120% at 100% 0%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(140deg, #ff9a45, var(--brand-deep));
+  box-shadow: 0 16px 36px rgba(255, 100, 10, 0.32);
+}
+.price-card--hero .price-dot { background: #fff; }
+.price-card--hero .price-head h2 { color: #fff; font-size: 16px; }
+.price-card--hero .price-value { margin: 16px 0 12px; }
+.price-card--hero .price-value strong { font-size: 44px; }
+.price-card--hero .price-dec,
+.price-card--hero .price-unit { color: rgba(255, 255, 255, 0.8); }
+.price-card--hero .price-dec { font-size: 22px; }
+.price-card--hero .price-unit { font-size: 15px; }
+.price-card--hero .price-diff,
+.price-card--hero .price-diff.up,
+.price-card--hero .price-diff.down { background: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* 로딩 */
+.skeleton {
+  border-radius: 22px;
+  height: 128px;
+  background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%) 0 0 / 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+.skeleton--hero { grid-column: 1 / -1; height: 168px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* 안내 / 오류 */
+.notice {
+  grid-column: 1 / -1;
+  padding: 28px 22px;
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.notice-ic {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+.notice h2 { margin: 0 0 8px; font-size: 17px; font-weight: 800; }
+.notice p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); word-break: keep-all; }
+.notice code { padding: 2px 6px; border-radius: 6px; background: var(--surface-2); color: var(--ink); font-size: 13px; }
+
+.source { margin: 18px 4px 16px; font-size: 12px; color: var(--muted); text-align: center; }
+
+#refresh.is-loading .i { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

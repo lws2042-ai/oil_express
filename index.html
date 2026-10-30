@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121a38">
+  <title>Oil Express · 고객 관리</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-top">
+        <div class="brand">
+          <span class="brand-mark" data-icon="drop"></span>
+          <div class="brand-text">
+            <strong>Oil Express</strong>
+            <span>배달 고객 장부</span>
+          </div>
+        </div>
+        <div class="stat" aria-live="polite">고객 <strong id="count">0</strong>명</div>
+      </div>
+
+      <h1 class="hero-title">어느 고객님께<br>배달하시나요?</h1>
+
+      <div class="search">
+        <span class="search-icon" data-icon="search"></span>
+        <input id="search" type="search" placeholder="이름 · 전화번호 · 주소로 검색" autocomplete="off" enterkeyhint="search" aria-label="고객 검색">
+        <button id="clearSearch" class="search-clear" type="button" aria-label="검색어 지우기" data-icon="x" hidden></button>
+      </div>
+    </header>
+
+    <main>
+      <a class="price-link" href="oil-price.html">
+        <span class="price-link-ic" data-icon="fuel"></span>
+        <span class="price-link-text">
+          <strong>오늘의 유가 정보</strong>
+          <span>등유 · 경유 · 휘발유 평균 가격</span>
+        </span>
+        <span class="price-link-arrow" data-icon="chevron"></span>
+      </a>
+
+      <div class="toolbar">
+        <p class="result-info" id="resultInfo"></p>
+        <div class="seg" role="group" aria-label="정렬">
+          <button type="button" class="seg-btn is-active" data-sort="recent" aria-pressed="true">최근 등록</button>
+          <button type="button" class="seg-btn" data-sort="name" aria-pressed="false">이름순</button>
+        </div>
+      </div>
+
+      <ul class="list" id="list"></ul>
+      <div class="empty" id="empty" hidden></div>
+    </main>
+  </div>
+
+  <button class="fab" id="fab" type="button"><span data-icon="plus"></span>고객 등록</button>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- 등록 / 수정 -->
+  <section class="sheet" id="formSheet" role="dialog" aria-modal="true" aria-labelledby="formTitle" aria-hidden="true" inert>
+    <div class="sheet-handle"></div>
+    <div class="sheet-head">
+      <h2 id="formTitle">새 고객 등록</h2>
+      <button type="button" class="icon-btn" data-close aria-label="닫기" data-icon="x"></button>
+    </div>
+    <form id="form" class="sheet-body" novalidate>
+      <div class="field">
+        <label for="fName">이름 / 상호 <em class="req">*</em></label>
+        <input id="fName" class="input" type="text" maxlength="40" autocomplete="off" placeholder="예: 김영수, 한빛농원">
+        <p class="field-error"></p>
+      </div>
+      <div class="field">
+        <label for="fPhone">전화번호 <em class="req">*</em></label>
+        <input id="fPhone" class="input input--num" type="tel" inputmode="numeric" maxlength="13" autocomplete="off" placeholder="010-0000-0000">
+        <p class="field-error"></p>
+      </div>
+      <div class="field">
+        <label for="fAddress">배달 주소 <em class="req">*</em></label>
+        <input id="fAddress" class="input" type="text" maxlength="120" autocomplete="off" placeholder="예: 울산광역시 남구 삼산로 274">
+        <p class="field-hint">네이버 지도 검색에 쓰여요. 도로명 주소가 가장 정확해요.</p>
+        <p class="field-error"></p>
+      </div>
+      <div class="field">
+        <label for="fDetail">상세 위치</label>
+        <input id="fDetail" class="input" type="text" maxlength="80" autocomplete="off" placeholder="동·호수, 창고 뒤편 등">
+      </div>
+      <div class="field">
+        <label for="fMemo">메모</label>
+        <textarea id="fMemo" class="input" rows="3" maxlength="500" placeholder="탱크 위치, 주 사용 유종, 결제 방식 등"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="submitBtn">등록하기</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- 상세 -->
+  <section class="sheet" id="detailSheet" role="dialog" aria-modal="true" aria-label="고객 상세" aria-hidden="true" inert>
+    <div class="sheet-handle"></div>
+    <button type="button" class="icon-btn sheet-close" data-close aria-label="닫기" data-icon="x"></button>
+    <div class="sheet-body" id="detailBody"></div>
+  </section>
+
+  <!-- 삭제 확인 -->
+  <div class="confirm-overlay" id="confirmOverlay"></div>
+  <div class="confirm" id="confirm" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmDesc" aria-hidden="true" inert>
+    <div class="confirm-icon" data-icon="trash"></div>
+    <h3 id="confirmTitle">고객을 삭제할까요?</h3>
+    <p id="confirmDesc"></p>
+    <div class="confirm-actions">
+      <button type="button" class="btn btn-ghost" id="confirmCancel">취소</button>
+      <button type="button" class="btn btn-danger-solid" id="confirmOk">삭제</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toastText"></span>
+    <button type="button" class="toast-action" id="toastAction" hidden></button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

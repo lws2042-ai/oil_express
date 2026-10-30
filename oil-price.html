@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121a38">
+  <title>Oil Express · 오늘의 유가</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="price.css">
+</head>
+<body>
+  <div class="app app--price">
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-top">
+        <a class="back-btn" href="index.html" aria-label="고객 목록으로" data-icon="back"></a>
+        <span class="live-badge"><i></i>오피넷</span>
+      </div>
+
+      <h1 class="hero-title">오늘의 유가</h1>
+      <p class="hero-sub" id="dateText">가격을 불러오는 중…</p>
+
+      <label class="area-select">
+        <span data-icon="pin"></span>
+        <select id="area" aria-label="지역 선택">
+          <option value="">전국 평균</option>
+        </select>
+        <span class="area-chev" data-icon="down"></span>
+      </label>
+    </header>
+
+    <main class="price-main">
+      <div class="prices" id="prices" aria-live="polite"></div>
+
+      <p class="source">출처: 한국석유공사 오피넷 · 주유소 평균 판매가격 (원/L)</p>
+
+      <button type="button" class="btn btn-ghost btn--sm" id="refresh"><span data-icon="refresh"></span>새로고침</button>
+    </main>
+  </div>
+
+  <script src="price.js"></script>
+</body>
+</html>
